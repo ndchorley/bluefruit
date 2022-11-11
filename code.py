@@ -1,12 +1,14 @@
-import board
-import neopixel
+from adafruit_circuitplayground import cp
 import time
+
 
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 WHITE = (255, 255, 255)
+
 OFF = (0, 0, 0)
+
 
 def american(pixels):
     for i in range(len(pixels)):
@@ -24,11 +26,9 @@ def turn_all_off(pixels):
     for i in range(len(pixels)):
         pixels[i] = OFF
 
-pixels = neopixel.NeoPixel(board.NEOPIXEL, 10)
-
 
 while True:
-    american(pixels)
+    american(cp.pixels)
     time.sleep(1)
-    turn_all_off(pixels)
+    turn_all_off(cp.pixels)
     time.sleep(2)
