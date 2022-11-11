@@ -22,13 +22,13 @@ def american(pixels):
         time.sleep(0.5)
 
 
-def turn_all_off(pixels):
+def all_green(pixels):
     for i in range(len(pixels)):
-        pixels[i] = OFF
+        pixels[i] = GREEN
 
 
 while True:
-    american(cp.pixels)
-    time.sleep(1)
-    turn_all_off(cp.pixels)
-    time.sleep(2)
+    if cp.button_a:
+        american(cp.pixels)
+    elif cp.button_b:
+        all_green(cp.pixels)
